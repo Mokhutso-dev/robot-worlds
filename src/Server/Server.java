@@ -28,8 +28,8 @@ public class Server{
 			String command = "";
 
 			// reads message from client until "Over" is sent
-			while ((!command.equalsIgnoreCase("QUIT")) & (!command.equalsIgnoreCase("off")))
-			{
+			while (!command.equalsIgnoreCase("QUIT")){
+
 				try
 				{
 					command = in.readUTF();

@@ -11,6 +11,7 @@ public class Client {
 		Socket socket = null;
 		DataInputStream input = null;
 		DataOutputStream out = null;
+        
 		
 		try {
 			socket = new Socket("127.0.0.1", 5000);
@@ -34,11 +35,12 @@ public class Client {
 
 		// string to read message from input
 		String command = "";
+        String name = "";
 
         System.out.print("What do you want to name your robot: ");
         try{
-            String robotName = input.readLine();
-            out.writeUTF(robotName);
+            name = input.readLine();
+            // out.writeUTF(name);
         }
         catch (IOException i) {
             System.out.println(i);
@@ -46,8 +48,10 @@ public class Client {
         
 
 		// keep reading until "Over" is input
-		while ((!command.equalsIgnoreCase("QUIT")) & (!command.equalsIgnoreCase("off"))) {
+		while (!command.equalsIgnoreCase("Quit")){
 			try {
+                
+                System.out.print(name+ "> What must I do next? ");
 				command = input.readLine();
 				out.writeUTF(command);
 			}
@@ -58,10 +62,10 @@ public class Client {
 
 		// close the connection
 		try {
-			input.close();
+            input.close();
 			out.close();
 			socket.close();
-		}
+        }
 		catch (IOException i) {
 			System.out.println(i);
 		}
