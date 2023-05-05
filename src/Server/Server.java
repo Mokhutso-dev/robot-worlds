@@ -27,14 +27,13 @@ public class Server{
 
 			String command = "";
 
-			// reads message from client until "Over" is sent
+			// reads message from client until "quit" is sent
 			while (!command.equalsIgnoreCase("QUIT")){
 
 				try
 				{
 					command = in.readUTF();
-					System.out.println(command);
-
+					System.out.println(command + ": Request here");
 				}
 				catch(IOException i)
 				{

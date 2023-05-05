@@ -14,7 +14,7 @@ public class Client {
         
 		
 		try {
-			socket = new Socket("127.0.0.1", 5000);
+			socket = new Socket("127.0.0.1", 4999);
 			System.out.println("Connected");
 	
 			// takes input from terminal
