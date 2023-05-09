@@ -1,8 +1,6 @@
 package Client;
 
 import java.util.ArrayList;
-// import java.util.Arrays;
-// import java.util.List;
 
 public class Robot {
     private final Position TOP_LEFT = new Position(-100,200);
@@ -33,13 +31,7 @@ public class Robot {
     }
 
     public boolean handleCommand(Command command) {
-        // 
-
-        if (!command.getName().equals("replay")  && !command.getName().equals("reverse")){
-            commandHistory.add(command);
-        }
-        
-        
+                
         return command.execute(this);
     }
     // new methods 

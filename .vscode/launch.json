@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "threadServer",
+            "request": "launch",
+            "mainClass": "threadServer",
+            "projectName": "robot-worlds_baa82fc3"
+        },
+        {
+            "type": "java",
             "name": "multiClient",
             "request": "launch",
             "mainClass": "Client.multiClient",

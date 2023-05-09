@@ -1,9 +1,4 @@
-package Client.Commands;
-
-import Client.Command;
-import Client.Robot;
-
-
+package Client;
 public class Forward extends Command {
     @Override
     public boolean execute(Robot target) {
@@ -22,3 +17,6 @@ public class Forward extends Command {
         super("forward", argument);
     }
 }
+
+
+

@@ -1,8 +1,4 @@
-package Client.Commands;
-
-import Client.Command;
-import Client.Robot;
-
+package Client;
 public class Left extends Command{
     @Override
     public boolean execute(Robot target) {
