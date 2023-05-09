@@ -1,14 +1,13 @@
 import java.io.*;
 import java.net.*;
 
-public class multiServer {
+public class threadServer {
     public static void main(String[] args)
     {
         ServerSocket server = null;
-  
         try {
 
-            server = new ServerSocket(4999);
+            server = new ServerSocket(8000);
             server.setReuseAddress(true);
             System.out.println("Server started");
 			System.out.println("Waiting for a client");
@@ -34,9 +33,7 @@ public class multiServer {
                 catch (IOException e) {
                     e.printStackTrace();
                 }
-        }
-
-        
+        }   
     }
   
     // ClientHandler class
@@ -61,22 +58,26 @@ public class multiServer {
   
                 in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
   
-                while (!command.equalsIgnoreCase("quit")) {
-                    
-                    command = in.readLine();
-                    System.out.printf(
-                        "Request from the client: %s\n",command);
-                    out.println(command);
+                while (!command.equalsIgnoreCase("QUIT")){
 
+                    try
+                    {
+                        command = in.readLine();
+                        System.out.println("Response for ");
+                    }
+                    catch(IOException i)
+                    {
+                        System.out.println(i);
+                    }
                 }
-                System.out.printf(
-                        "Closing Connection");
-                // in.close();
-                // out.close();
-                
-                clientSocket.shutdownInput();
-                clientSocket.shutdownOutput();
+
+                // close connection
                 clientSocket.close();
+                out.close();
+                in.close();
+                System.out.println("Closing connection");
+                
+                
             }
             catch (IOException e) {
                 e.printStackTrace();

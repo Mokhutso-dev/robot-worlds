@@ -14,13 +14,11 @@ public class Client {
         
 		
 		try {
-			socket = new Socket("127.0.0.1", 4999);
+			socket = new Socket("127.0.0.1", 8000);
 			System.out.println("Connected");
-	
-			// takes input from terminal
+
 			input = new DataInputStream(System.in);
 
-			// sends output to the socket
 			out = new DataOutputStream(
 				socket.getOutputStream());
 		}
@@ -33,7 +31,6 @@ public class Client {
 			return;
 		}
 
-		// string to read message from input
 		String command = "";
         String name = "";
 
@@ -46,8 +43,6 @@ public class Client {
             System.out.println(i);
         }
         
-
-		// keep reading until "Over" is input
 		while (!command.equalsIgnoreCase("Quit")){
 			try {
                 

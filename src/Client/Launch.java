@@ -1,5 +1,4 @@
-package Client.Commands;
-
+package Client;
 public class Launch {
     
 }
